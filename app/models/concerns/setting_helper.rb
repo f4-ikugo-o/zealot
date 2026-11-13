@@ -80,7 +80,10 @@ module SettingHelper
     end
 
     def site_https
-      Rails.env.production? || ENV['ZEALOT_USE_HTTPS'].present?
+      use_https = ENV['ZEALOT_USE_HTTPS']
+      return !%w[false 0 no off].include?(use_https.to_s.downcase) if Rails.env.production?
+
+      use_https.present?
     end
 
     def site_configs
