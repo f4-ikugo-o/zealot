@@ -20,7 +20,9 @@ class Api::DebugFiles::DownloadController < Api::BaseController
 
     return render_not_found unless @debug_file && File.exist?(@debug_file.file.path)
 
-    redirect_to @debug_file.file_url, status: :found, allow_other_host: true
+    send_file @debug_file.file.path,
+              filename: @debug_file.download_filename,
+              disposition: 'attachment'
   end
 
   private

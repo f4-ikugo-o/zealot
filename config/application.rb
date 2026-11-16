@@ -19,6 +19,8 @@ require 'action_cable/engine'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative '../lib/middleware/private_uploads'
+
 module Zealot
   class Application < Rails::Application
     VERSION = '7.0.0'
@@ -64,8 +66,10 @@ module Zealot
     #   config.action_cable.allowed_request_origins = origins
     # end
 
+    config.middleware.unshift Middleware::PrivateUploads
+
     # Auto load path
-    config.autoload_lib(ignore: %w[assets tasks templates])
+    config.autoload_lib(ignore: %w[assets middleware tasks templates])
 
     ################################################################
     # Don't generate those files.

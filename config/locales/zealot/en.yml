@@ -932,6 +932,7 @@ en:
       auto: Auto
   download:
     releases:
+      login_required: Please sign in to download
       show:
         not_found: Not found release
     debug_files:

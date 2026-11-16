@@ -890,6 +890,7 @@ ja:
       auto: 自動
   download:
     releases:
+      login_required: ダウンロードするにはログインしてください
       show:
         not_found: リリースなし
     debug_files:

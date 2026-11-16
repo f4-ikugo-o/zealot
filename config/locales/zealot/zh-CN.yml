@@ -904,6 +904,7 @@ zh-CN:
       auto: 随系统自动
   download:
     releases:
+      login_required: 下载前请先登录
       show:
         not_found: 找不到应用文件，无法提供下载服务
     debug_files:
