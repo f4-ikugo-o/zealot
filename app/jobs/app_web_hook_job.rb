@@ -8,7 +8,7 @@ class AppWebHookJob < ApplicationJob
 
   queue_as :webhook
 
-  retry_on Faraday::Error, wait: :exponentially_longer, attempts: 3 do |job, error|
+  retry_on Faraday::Error, wait: :polynomially_longer, attempts: 3 do |job, error|
     job.send(:handle_webhook_failure, error)
   end
 
