@@ -10,6 +10,7 @@ class WebHookService
       name
       app_name
       device_type
+      release_id
       release_version
       build_version
       bundle_id
