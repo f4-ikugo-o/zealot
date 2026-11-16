@@ -61,9 +61,9 @@ class User < ApplicationRecord
   end
 
   def set_user_default_settings
-    self.locale = Setting.site_locale unless locale_changed?
-    self.appearance = Setting.site_appearance unless appearance_changed?
-    self.timezone = Setting.site_timezone unless timezone_changed?
+    self.locale = Setting.site_locale unless locale_came_from_user?
+    self.appearance ||= Setting.site_appearance
+    self.timezone = Setting.site_timezone unless timezone_came_from_user?
   end
 
   def generate_user_token
