@@ -54,7 +54,7 @@ ruby:
 
     .flex.gap-2.my-3
       - if @debug_file.file?
-        = button_link_to t('.download'), @debug_file.file_url, 'download', target: '_blank', \
+        = button_link_to t('.download'), download_debug_file_path(@debug_file), 'download', target: '_blank', \
           class: 'd-btn md:d-btn-lg d-btn-success'
       - else
         button.d-btn.d-btn-disabled class="d-btn md:d-btn-lg"
